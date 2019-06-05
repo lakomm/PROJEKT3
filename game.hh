@@ -6,12 +6,15 @@ private:
 public:
   void Play(){
     int BOARD_SIZE,NUM_OF_WINNING,DEPTH,X,Y;
-    DEPTH=7;
+    DEPTH=6;
     std::cout<<"Podaj rozmiar planszy: "; std::cin>>BOARD_SIZE;
     std::cout<<'\n'<<"Podaj liczbe wygrywajacych pod rzad: "; std::cin>>NUM_OF_WINNING; std::cout<<'\n';
 
     Board B(BOARD_SIZE); //zainicjalizowanie planszy
-
+    // B.move(0,0,'X');
+    // B.move(1,1,'X');
+    // B.move(2,2,'X');
+    // std::cout<<B.evaluate(3)<<'\n';
     B.displayBoard(); //wyswietlenie planszy
 
     while(1){  //glowna petla gry
@@ -21,7 +24,7 @@ public:
     if(B.isWin(NUM_OF_WINNING)){break;}   //sprawdzenie wygranej
 
     std::cout<<"RUCH KOMPUTERA   "<<'\n';
-    M=ai.BestMove(B,DEPTH,NUM_OF_WINNING); //szukanie najlepszego ruchu dla komputera
+    M=ai.AIMove(B,DEPTH,NUM_OF_WINNING); //szukanie najlepszego ruchu dla komputera
     B.move(M.x,M.y,'X');
     B.displayBoard();
     if(B.isWin(NUM_OF_WINNING)){break;} //sprawdzenie wygranej

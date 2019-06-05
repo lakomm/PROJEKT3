@@ -15,7 +15,7 @@ public:
 
     if(depth==0 || !board.isMoveleft())return score; //warunki zakonczenia rekursji
     if( score==10)return score+depth;
-    if( score==-10)return score-depth;
+    if( score==-10)return score+depth;
 
     int const MIN=-1000;
     int const MAX=1000;
@@ -61,7 +61,7 @@ public:
 // board, depth, number of winning in a row
 //funkcja srawdza kazdy z dostepnych ruchow i za pomoca algorytmu min max go ocenia
 //najlepszy ruch zostaje zwrocony
-Move BestMove(Board board,int depth, int winningrow){
+Move AIMove(Board board,int depth, int winningrow){
   int bestVal=-1000;
   Move bestMove;
   bestMove.x=-1;
